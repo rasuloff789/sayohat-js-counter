@@ -3,11 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Document</title>
 </head>
 <body>
   
-
+  <div class="container d-flex flex-column align-items-center">
+    
+    <p class="plus text-success d-inline-block p-3 my-2 bg-light text-center rounded-pill display-2"></p>
+    <p class="minus text-danger d-inline-block p-3 my-2 bg-light text-center rounded-pill display-2"></p>
+    <p class="ps d-none text-success text-center display-2">Omad kelsa oldimdan , pulim yetmasa ortimdan <br> Sindi klientjonim degan , Voy mani pragramistlarim <br> hahahaha :))))</p>
+    <p class="ps-error d-none text-danger text-center display-2">Kecha mani sindi degan voymani akaxonlariiiiiiim :()</p>
+    <p class="text-success p-3 my-2 bg-warning text-center rounded-pill display-3">Borish kelish - <span class="gocomeprice ">500</span>$</p>
+    <p class="text-success p-3 my-2 bg-light text-center rounded-pill display-3">Mehmonxona to'lovi - <span class="hotelprice">250</span>$</p>
+    <p class="text-success p-3 my-2 bg-primary text-center rounded-pill display-3">Ko'ngilochar yerlar uchun - <span class="kungil">120</span>¥</p>
+    
+    <p class="text-warning my-2 bg-white text-center rounded-pill display-3">1 ¥ - <span class="euro text-success p-3">10354.03</span> sum</p>
+    <p class="text-warning my-2 bg-white text-center rounded-pill display-3">1 $ - <span class="dollar text-success p-3">9433.34</span> sum</p>
+    
+    <p class="text-dark my-2 bg-white text-center rounded-pill display-3">Hotel narxi <span class="hotel text-success p-3"></span> sum</p>
+    
+    <p class="text-dark my-2 bg-white text-center rounded-pill display-3">Borib kelish narxi <span class="go-come text-success p-3"></span> sum</p>
+    <p class="text-dark my-2 bg-white text-center rounded-pill display-4">Ko'ngilochar markazlar narxi <span class="kungilUchun text-success p-3"></span> sum</p>
+    <p class="text-danger my-2 bg-white text-center rounded-pill display-4">Hammasi<span class="all text-danger p-3"></span> sum</p>
+  </div>
+  
+  <script>
+    var psSuccess = document.querySelector('.ps');
+    var psError = document.querySelector('.ps-error');
+    var plus = document.querySelector('.plus');
+    var minus = document.querySelector('.minus');
+    var dollar = document.querySelector('.dollar').textContent;
+    var euro = document.querySelector('.euro').textContent;
+    var euroText = Math.round(euro * 100);
+    var dollarText = Math.round(dollar * 100) ;
+    var goComePrice = document.querySelector('.gocomeprice').textContent;
+    var hotelPrice = document.querySelector('.hotelprice').textContent;
+    var hotel = document.querySelector('.hotel');
+    var goCome = document.querySelector('.go-come');
+    var kungil = document.querySelector('.kungil').textContent;
+    var forMy = document.querySelector('.kungilUchun');
+    goCome.textContent = dollarText * goComePrice /100;
+    hotel.textContent = dollarText * hotelPrice / 100;
+    forMy.textContent = euroText * kungil / 100 ;
+    var alltext = document.querySelector('.all');
+    var all = (dollarText * goComePrice + dollarText * hotelPrice + euroText * kungil) / 100;
+    alltext.textContent = all;
+    console.log(all);
+    // console.log(hotel) ;
+    var question =  prompt(`Cho'ntakka qarab oyoq uzating ;\) . Puliz qancha ???`).trim();
+    if (question > all) {
+      plus.textContent = `Oq yo’l, Alisher!`;
+      minus.classList.remove('p-3');
+      psSuccess.classList.add('d-inline');
+    } else  {
+      minus.textContent = `Alisher, ozgina sabr qilish kerak bo’lar ekan. :((`;
+      plus.classList.remove('p-3');
+      psError.classList.add('d-inline');
+    }
+  </script>
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/scripts.js"></script>
