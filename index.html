@@ -49,19 +49,20 @@
     var alltext = document.querySelector('.all');
     var all = (dollarText * goComePrice + dollarText * hotelPrice + euroText * kungil) / 100;
     alltext.textContent = all;
-    console.log(all);
-    // console.log(hotel) ;
     var question =  prompt(`Cho'ntakka qarab oyoq uzating ;\) . Puliz qancha ???`).trim();
+    var plusMoney = all - question  ;
+    var minusMoney = question - all ;
     if (question > all) {
       plus.textContent = `Oq yo’l, Alisher!`;
       minus.classList.remove('p-3');
       psSuccess.classList.add('d-inline');
-      alert('Sabr tilayman :))');
+      alert(`Sabr tilayman :)) puling ${minusMoney} sum ortib qolarkan :))`);
+
     } else  {
       minus.textContent = `Alisher, ozgina sabr qilish kerak bo’lar ekan. :((`;
       plus.classList.remove('p-3');
       psError.classList.add('d-inline');
-      alert('Xursand bo\'laver bor puling ham o\'zingda qoladi ');
+      alert(`Xursand bo\'laver bor puling ham o\'zingda qoladi Yana ${plusMoney} sum ishlashing kerak`);
 
     }
   </script>
