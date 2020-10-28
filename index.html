@@ -49,9 +49,9 @@
     var alltext = document.querySelector('.all');
     var all = (dollarText * goComePrice + dollarText * hotelPrice + euroText * kungil) / 100;
     alltext.textContent = all;
-    var question =  prompt(`Cho'ntakka qarab oyoq uzating ;\) . Puliz qancha ???`).trim();
-    var plusMoney = all - question  ;
-    var minusMoney = question - all ;
+    var question =  parseInt(prompt(`Cho'ntakka qarab oyoq uzating ;\) . Puliz qancha ???`).trim() , 10);
+    var plusMoney = parseInt(all - question , 10)  ;
+    var minusMoney = parseInt(question - all , 10) ;
     if (question > all) {
       plus.textContent = `Oq yo’l, Alisher!`;
       minus.classList.remove('p-3');
